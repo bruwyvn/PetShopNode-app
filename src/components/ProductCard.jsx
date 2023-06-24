@@ -20,7 +20,7 @@ const ProductCard = ({ product }) => {
           <p>{product.description && product.description}</p>
           <div className="card-actions justify-end">
             <Link
-              to={`/product/${product.id && product.id}`}
+              to={`/details/${product.id && product.id}`}
               className="btn-primary btn"
             >
               Detalhes

@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 
+// Components
+import ProductList from "../components/ProductList";
+
 const Home = () => {
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
@@ -12,7 +15,16 @@ const Home = () => {
     async function fetchProducts() {
       setLoadingProducts(true);
       try {
-        const response = await fetch(url + "/produto");
+        const token = localStorage.getItem("token");
+        if (!token) {
+          throw new Error("Token not found");
+        }
+        const response = await fetch("http://localhost:3000/produto", {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        });
         const json = await response.json();
         setProducts(json);
         setLoadingProducts(false);
@@ -29,7 +41,16 @@ const Home = () => {
     async function fetchCategories() {
       setLoadingCategories(true);
       try {
-        const response = await fetch(url + "/category");
+        const token = localStorage.getItem("token");
+        if (!token) {
+          throw new Error("Token not found");
+        }
+        const response = await fetch("http://localhost:3000/category", {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        });
         const json = await response.json();
         setCategories(json);
         setLoadingCategories(false);
