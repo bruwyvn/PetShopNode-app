@@ -60,110 +60,143 @@ const Costumer = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div className="row">
-        <div className="col-md-6">
-          <h2>Dados Pessoais</h2>
-          <label>
-            Nome:
-            <input
-              className="input-field"
-              type="text"
-              value={nome}
-              onChange={(event) => setNome(event.target.value)}
-            />
-          </label>
-          <label>
-            Telefone:
-            <input
-              className="input-field"
-              type="text"
-              value={telefone}
-              onChange={(event) => setTelefone(event.target.value)}
-            />
-          </label>
-          <label>
-            Endereço:
-            <input
-              className="input-field"
-              type="text"
-              value={endereco}
-              onChange={(event) => setEndereco(event.target.value)}
-            />
-          </label>
-          <label>
-            CPF:
-            <input
-              className="input-field"
-              type="text"
-              value={cpf}
-              onChange={(event) => setCpf(event.target.value)}
-            />
-          </label>
-          <label>
-            Escolher foto de perfil:
-            <input
-              className="input-field"
-              type="file"
-              onChange={(event) => setFotoPerfil(event.target.files[0])}
-            />
-          </label>
-        </div>
-        <div className="col-md-6">
-          <h2>Dados do Cartão</h2>
-          <label>
-            Nome no Cartão:
-            <input
-              className="input-field"
-              type="text"
-              value={nomeCartao}
-              onChange={(event) => setNomeCartao(event.target.value)}
-            />
-          </label>
-          <label>
-            Número do Cartão:
-            <input
-              className="input-field"
-              type="text"
-              value={numeroCartao}
-              onChange={(event) => setNumeroCartao(event.target.value)}
-            />
-          </label>
-          <label>
-            CVC:
-            <input
-              className="input-field"
-              type="password"
-              value={cvc}
-              onChange={(event) => setCvc(event.target.value)}
-            />
-          </label>
-        </div>
+    <div className="hero min-h-screen bg-base-200">
+      <div className="hero-content">
+        <form
+          onSubmit={handleSubmit}
+          className="grid grid-cols-1 gap-8 text-center md:grid-cols-2 md:grid-rows-2"
+        >
+          <div className="card w-full max-w-sm flex-shrink-0 bg-base-100 shadow-2xl">
+            <div className="card-body">
+              <h2 className="text-2xl font-semibold">Dados Pessoais</h2>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Nome:</span>
+                </label>
+                <input
+                  className="input-bordered input w-full max-w-xs"
+                  type="text"
+                  value={nome}
+                  onChange={(event) => setNome(event.target.value)}
+                />
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Telefone:</span>
+                </label>
+                <input
+                  className="input-bordered input w-full max-w-xs"
+                  type="text"
+                  value={telefone}
+                  onChange={(event) => setTelefone(event.target.value)}
+                />
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Endereço:</span>
+                </label>
+                <input
+                  className="input-bordered input w-full max-w-xs"
+                  type="text"
+                  value={endereco}
+                  onChange={(event) => setEndereco(event.target.value)}
+                />
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">CPF:</span>
+                </label>
+                <input
+                  className="input-bordered input w-full max-w-xs"
+                  type="text"
+                  value={cpf}
+                  onChange={(event) => setCpf(event.target.value)}
+                />
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Escolher foto de perfil:</span>
+                </label>
+                <input
+                  className="file-input input-bordered w-full max-w-xs"
+                  type="file"
+                  onChange={(event) => setFotoPerfil(event.target.files[0])}
+                />
+              </div>
+            </div>
+          </div>
+          <div className="card w-full max-w-sm flex-shrink-0 bg-base-100 shadow-2xl">
+            <div className="card-body">
+              <h2 className="text-2xl font-semibold">Dados do Cartão</h2>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Nome no Cartão:</span>
+                </label>
+                <input
+                  className="input-bordered input w-full max-w-xs"
+                  type="text"
+                  value={nomeCartao}
+                  onChange={(event) => setNomeCartao(event.target.value)}
+                />
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Número do Cartão:</span>
+                </label>
+                <input
+                  className="input-bordered input w-full max-w-xs"
+                  type="text"
+                  value={numeroCartao}
+                  onChange={(event) => setNumeroCartao(event.target.value)}
+                />
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">CVC:</span>
+                </label>
+                <input
+                  className="input-bordered input w-full max-w-xs"
+                  type="password"
+                  value={cvc}
+                  onChange={(event) => setCvc(event.target.value)}
+                />
+              </div>
+            </div>
+          </div>
+          <div className="card w-full max-w-sm flex-shrink-0 bg-base-100 shadow-2xl">
+            <div className="card-body">
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Email:</span>
+                </label>
+                <input
+                  className="input-bordered input w-full max-w-xs"
+                  type="email"
+                  value={email}
+                  onChange={(event) => setEmail(event.target.value)}
+                />
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Senha:</span>
+                </label>
+                <input
+                  className="input-bordered input w-full max-w-xs"
+                  type="password"
+                  value={senha}
+                  onChange={(event) => setSenha(event.target.value)}
+                />
+              </div>
+              <div className="form-control mt-6">
+                <button type="submit" className="btn-primary btn">
+                  Cadastrar/Atualizar
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
       </div>
-
-      <div>
-        <label>
-          Email:
-          <input
-            className="input-field"
-            type="text"
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
-          />
-        </label>
-        <label>
-          Senha:
-          <input
-            className="input-field"
-            type="password"
-            value={senha}
-            onChange={(event) => setSenha(event.target.value)}
-          />
-        </label>
-      </div>
-
-      <button type="submit">Cadastrar/Atualizar</button>
-    </form>
+    </div>
   );
 };
 
