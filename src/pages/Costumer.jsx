@@ -8,7 +8,7 @@ const Costumer = () => {
   const [fotoPerfil, setFotoPerfil] = useState("");
   const [nomeCartao, setNomeCartao] = useState("");
   const [numeroCartao, setNumeroCartao] = useState("");
-  const [cvc, setCvc] = useState("");
+  const [cvv, setCvv] = useState("");
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
 
@@ -29,22 +29,32 @@ const Costumer = () => {
       telefone,
       endereco,
       cpf,
-      fotoPerfil,
+      imagemPerfil: {
+        data: {
+          type: "Buffer",
+          data: [],
+        },
+        contentType: "image/png",
+      },
       nomeCartao,
       numeroCartao,
-      cvc,
+      cvv,
       email,
       senha,
     };
+
+    const formData = new FormData();
+    formData.append("imagemPerfil", fotoPerfil)
+    formData.append("teste", JSON.stringify(data))
+      
 
     try {
       const response = await fetch("http://localhost:3000/cliente", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
           Authorization: `Bearer ${token}`, // Incluir o token no cabeçalho da requisição
         },
-        body: JSON.stringify(data),
+        body: formData,
       });
 
       if (response.ok) {
@@ -157,8 +167,8 @@ const Costumer = () => {
                 <input
                   className="input-bordered input w-full max-w-xs"
                   type="password"
-                  value={cvc}
-                  onChange={(event) => setCvc(event.target.value)}
+                  value={cvv}
+                  onChange={(event) => setCvv(event.target.value)}
                 />
               </div>
             </div>
